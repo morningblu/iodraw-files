@@ -1,14 +1,385 @@
 <mxfile host="www.iodraw.com" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0" version="24.7.17">
-  <diagram name="第 1 页" id="y_h46J2sP_7huKYidJXV">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1426" dy="783" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        <UserObject label="sequenceDiagram&#xa;    autonumber&#xa;    participant User as 用户&#xa;    participant HMI as HMI进程（Qt/QML）&#xa;    participant HMIObj as HMIEventReceiveApp&#xa;    participant IPC as MessageClient / IPC通道&#xa;    participant AI as AI APP进程&#xa;    participant Worker as Worker线程&#xa;    participant Obs as avm_obstacle_periodic_shot_thread&#xa;    participant Aibox as AIBox线程&#xa;    participant LLM as LLM模型&#xa;    participant Android as Android终端&#xa;&#xa;&#xa;    User-&gt;&gt;HMI: 在设置页面打开“车外不審者認識”&#xa;    HMI-&gt;&gt;HMIObj: QML 调用 sendHMIEvent(0x4007, [1])&#xa;    HMIObj-&gt;&gt;HMIObj: 打包协议：0x40 0x07 + data[0]=1&#xa;    HMIObj-&gt;&gt;IPC: m_client-&gt;sendMessage(command)&#xa;    IPC--&gt;&gt;AI: 通过 IPC/消息通道传输 0x4007&#xa;&#xa;&#xa;    AI-&gt;&gt;Worker: grpcClient线程收到消息，送入 worker 队列&#xa;    Worker-&gt;&gt;Worker: 解析 cmd = 0x4007&#xa;    alt data == 1&#xa;        Worker-&gt;&gt;Worker: set_avm_obstacle_cycle_enable(true)&#xa;        Worker-&gt;&gt;Worker: setAiCarPhoneHomeSec(true)&#xa;    else data == 0&#xa;        Worker-&gt;&gt;Worker: set_avm_obstacle_cycle_enable(false)&#xa;        Worker-&gt;&gt;Worker: clear_hmiAppInfo()&#xa;    end&#xa;&#xa;&#xa;    Worker--&gt;&gt;Obs: 打开/关闭车外周期抓拍检测&#xa;    Obs-&gt;&gt;Obs: 左右摄像头交替抓拍&#xa;    Obs-&gt;&gt;Aibox: aiBoxQueue.push(0x9006 + 图像)&#xa;    Aibox-&gt;&gt;Aibox: run_aiBox() 取消息&#xa;    Aibox-&gt;&gt;Aibox: 调用 avm_aiapp_SuspiciousPersonDetectCycle()&#xa;    Aibox-&gt;&gt;LLM: llm_get_suspicious_person_state(image)&#xa;    LLM--&gt;&gt;Aibox: 返回 JSON 判断是否可疑&#xa;    alt 检测到可疑人员&#xa;        Aibox-&gt;&gt;Aibox: sendToAndroid_3006(true, img, size)&#xa;    else 未检测到可疑人员&#xa;        Aibox-&gt;&gt;Aibox: sendToAndroid_3006(false, nullptr, 0)&#xa;    end&#xa;    Aibox-&gt;&gt;Worker: worker_to_grpcClient.push(msg)&#xa;    Worker-&gt;&gt;IPC: 通过 grpcClient线程发出&#xa;    IPC--&gt;&gt;Android: 发送 0x3006 告警消息" link="sequenceDiagram&#xa;    autonumber&#xa;    participant User as 用户&#xa;    participant HMI as HMI进程（Qt/QML）&#xa;    participant HMIObj as HMIEventReceiveApp&#xa;    participant IPC as MessageClient / IPC通道&#xa;    participant AI as AI APP进程&#xa;    participant Worker as Worker线程&#xa;    participant Obs as avm_obstacle_periodic_shot_thread&#xa;    participant Aibox as AIBox线程&#xa;    participant LLM as LLM模型&#xa;    participant Android as Android终端&#xa;&#xa;&#xa;    User-&gt;&gt;HMI: 在设置页面打开“车外不審者認識”&#xa;    HMI-&gt;&gt;HMIObj: QML 调用 sendHMIEvent(0x4007, [1])&#xa;    HMIObj-&gt;&gt;HMIObj: 打包协议：0x40 0x07 + data[0]=1&#xa;    HMIObj-&gt;&gt;IPC: m_client-&gt;sendMessage(command)&#xa;    IPC--&gt;&gt;AI: 通过 IPC/消息通道传输 0x4007&#xa;&#xa;&#xa;    AI-&gt;&gt;Worker: grpcClient线程收到消息，送入 worker 队列&#xa;    Worker-&gt;&gt;Worker: 解析 cmd = 0x4007&#xa;    alt data == 1&#xa;        Worker-&gt;&gt;Worker: set_avm_obstacle_cycle_enable(true)&#xa;        Worker-&gt;&gt;Worker: setAiCarPhoneHomeSec(true)&#xa;    else data == 0&#xa;        Worker-&gt;&gt;Worker: set_avm_obstacle_cycle_enable(false)&#xa;        Worker-&gt;&gt;Worker: clear_hmiAppInfo()&#xa;    end&#xa;&#xa;&#xa;    Worker--&gt;&gt;Obs: 打开/关闭车外周期抓拍检测&#xa;    Obs-&gt;&gt;Obs: 左右摄像头交替抓拍&#xa;    Obs-&gt;&gt;Aibox: aiBoxQueue.push(0x9006 + 图像)&#xa;    Aibox-&gt;&gt;Aibox: run_aiBox() 取消息&#xa;    Aibox-&gt;&gt;Aibox: 调用 avm_aiapp_SuspiciousPersonDetectCycle()&#xa;    Aibox-&gt;&gt;LLM: llm_get_suspicious_person_state(image)&#xa;    LLM--&gt;&gt;Aibox: 返回 JSON 判断是否可疑&#xa;    alt 检测到可疑人员&#xa;        Aibox-&gt;&gt;Aibox: sendToAndroid_3006(true, img, size)&#xa;    else 未检测到可疑人员&#xa;        Aibox-&gt;&gt;Aibox: sendToAndroid_3006(false, nullptr, 0)&#xa;    end&#xa;    Aibox-&gt;&gt;Worker: worker_to_grpcClient.push(msg)&#xa;    Worker-&gt;&gt;IPC: 通过 grpcClient线程发出&#xa;    IPC--&gt;&gt;Android: 发送 0x3006 告警消息" id="WwTQ5cliVq0lbB7_4XD1-1">
-          <mxCell style="text;whiteSpace=wrap;" vertex="1" parent="1">
-            <mxGeometry x="90" y="120" width="390" height="700" as="geometry" />
-          </mxCell>
-        </UserObject>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-2" value="" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" target="WIyWlLk6GJQsqaUBKTNV-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="Lamp doesn&#39;t work" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="160" y="80" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-4" value="Yes" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-6" target="WIyWlLk6GJQsqaUBKTNV-10" edge="1">
+          <mxGeometry y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-5" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-6" target="WIyWlLk6GJQsqaUBKTNV-7" edge="1">
+          <mxGeometry y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-6" value="Lamp&lt;br&gt;plugged in?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="170" y="170" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-7" value="Plug in lamp" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="320" y="190" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-8" value="No" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="WIyWlLk6GJQsqaUBKTNV-11" edge="1">
+          <mxGeometry x="0.3333" y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-9" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="WIyWlLk6GJQsqaUBKTNV-12" edge="1">
+          <mxGeometry y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-10" value="Bulb&lt;br&gt;burned out?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="170" y="290" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-11" value="Repair Lamp" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="160" y="430" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-12" value="Replace Bulb" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="320" y="310" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-0" value="用户" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="160" y="490" width="150" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-1" value="HMI进程（Qt/QML）" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="456" y="490" width="172" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-2" value="HMIEventReceiveApp" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="790" y="490" width="171" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-3" value="MessageClient / IPC通道" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1100" y="490" width="194" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-4" value="AI APP进程" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1410" y="490" width="150" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-5" value="Worker线程" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1785" y="490" width="150" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-6" value="avm_obstacle_periodic_shot_thread" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1995" y="490" width="269" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-7" value="AIBox线程" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2359" y="490" width="150" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-8" value="LLM模型" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2709" y="490" width="150" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-9" value="Android终端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2909" y="490" width="150" height="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-10" value="alt" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=30" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1722" y="989" width="279" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-11" value="[data == 1]" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-10">
+          <mxGeometry x="30" width="249" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-12" value="[data == 0]" style="shape=line;dashed=1;whiteSpace=wrap;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;align=center;strokeColor=#B3B3B3;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-10">
+          <mxGeometry y="215" width="279" height="4" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-13" value="alt" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=30" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2295" y="1903" width="281" height="286" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-14" value="[检测到可疑人员]" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-13">
+          <mxGeometry x="30" width="251" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-15" value="[未检测到可疑人员]" style="shape=line;dashed=1;whiteSpace=wrap;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;align=center;strokeColor=#B3B3B3;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-13">
+          <mxGeometry y="133" width="281" height="4" as="geometry" />
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-16" value="在设置页面打开“车外不審者認識”" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-0" target="0895OL3CAELR1E4Zpxg7-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="397" y="597" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-17" value="1" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-16">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-161" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-18" value="QML 调用 sendHMIEvent(0x4007, [1])" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-1" target="0895OL3CAELR1E4Zpxg7-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="717" y="649" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-19" value="2" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-18">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-174" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-20" value="打包协议：0x40 0x07 + data[0]=1" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-2" target="0895OL3CAELR1E4Zpxg7-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="926" y="701" />
+              <mxPoint x="926" y="731" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-21" value="3" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-20">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-22" value="m_client-&gt;sendMessage(command)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-2" target="0895OL3CAELR1E4Zpxg7-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1045" y="783" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-23" value="4" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-22">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-168.5" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-24" value="通过 IPC/消息通道传输 0x4007" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-3" target="0895OL3CAELR1E4Zpxg7-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1350" y="835" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-25" value="5" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-24">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-151.5" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-26" value="grpcClient线程收到消息，送入 worker 队列" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-4" target="0895OL3CAELR1E4Zpxg7-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1681" y="887" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-27" value="6" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-26">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-195" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-28" value="解析 cmd = 0x4007" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-5" target="0895OL3CAELR1E4Zpxg7-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1911" y="939" />
+              <mxPoint x="1911" y="969" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-29" value="7" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-28">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-30" value="set_avm_obstacle_cycle_enable(true)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-5" target="0895OL3CAELR1E4Zpxg7-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1911" y="1067" />
+              <mxPoint x="1911" y="1097" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-31" value="8" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-30">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-32" value="setAiCarPhoneHomeSec(true)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-5" target="0895OL3CAELR1E4Zpxg7-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1911" y="1149" />
+              <mxPoint x="1911" y="1179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-33" value="9" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-32">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-34" value="set_avm_obstacle_cycle_enable(false)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-5" target="0895OL3CAELR1E4Zpxg7-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1911" y="1277" />
+              <mxPoint x="1911" y="1307" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-35" value="10" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-34">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-36" value="clear_hmiAppInfo()" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-5" target="0895OL3CAELR1E4Zpxg7-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1911" y="1359" />
+              <mxPoint x="1911" y="1389" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-37" value="11" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-36">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-38" value="打开/关闭车外周期抓拍检测" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-5" target="0895OL3CAELR1E4Zpxg7-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2003" y="1481" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-39" value="12" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-38">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-142" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-40" value="左右摄像头交替抓拍" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-6" target="0895OL3CAELR1E4Zpxg7-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2180" y="1533" />
+              <mxPoint x="2180" y="1563" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-41" value="13" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-40">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-42" value="aiBoxQueue.push(0x9006 + 图像)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-6" target="0895OL3CAELR1E4Zpxg7-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2290" y="1615" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-43" value="14" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-42">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-160" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-44" value="run_aiBox() 取消息" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-7" target="0895OL3CAELR1E4Zpxg7-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2485" y="1667" />
+              <mxPoint x="2485" y="1697" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-45" value="15" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-44">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-46" value="调用 avm_aiapp_SuspiciousPersonDetectCycle()" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-7" target="0895OL3CAELR1E4Zpxg7-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2485" y="1749" />
+              <mxPoint x="2485" y="1779" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-47" value="16" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-46">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-48" value="llm_get_suspicious_person_state(image)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-7" target="0895OL3CAELR1E4Zpxg7-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2618" y="1831" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-49" value="17" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-48">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-182.5" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-50" value="返回 JSON 判断是否可疑" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-8" target="0895OL3CAELR1E4Zpxg7-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2621" y="1883" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-51" value="18" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-50">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="168.5" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-52" value="sendToAndroid_3006(true, img, size)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-7" target="0895OL3CAELR1E4Zpxg7-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2485" y="1981" />
+              <mxPoint x="2485" y="2011" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-53" value="19" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-52">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-54" value="sendToAndroid_3006(false, nullptr, 0)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-7" target="0895OL3CAELR1E4Zpxg7-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2485" y="2109" />
+              <mxPoint x="2485" y="2139" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-55" value="20" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-54">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-56" value="worker_to_grpcClient.push(msg)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-7" target="0895OL3CAELR1E4Zpxg7-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2159" y="2231" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-57" value="21" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-56">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="280.5" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-58" value="通过 grpcClient线程发出" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-5" target="0895OL3CAELR1E4Zpxg7-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1540" y="2283" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-59" value="22" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-58">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="325" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-60" value="发送 0x3006 告警消息" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="0895OL3CAELR1E4Zpxg7-3" target="0895OL3CAELR1E4Zpxg7-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2099" y="2335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0895OL3CAELR1E4Zpxg7-61" value="23" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="0895OL3CAELR1E4Zpxg7-60">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-901" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
