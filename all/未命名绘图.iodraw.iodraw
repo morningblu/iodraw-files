@@ -1,0 +1,362 @@
+<mxfile host="www.iodraw.com" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0" version="24.7.17">
+  <diagram name="第 1 页" id="LjkR6ehFR7zh6D3Jc9xS">
+    <mxGraphModel dx="1678" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-2" value="HMI / Android / 上层控制端" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="218" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-3" value="gRPC Client线程" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="339" y="20" width="150" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-4" value="Worker线程" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="676" y="20" width="150" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-5" value="avm_obstacle_periodic_shot_thread" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="970" y="20" width="269" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-6" value="AIBox线程(run_aiBox)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="20" width="172" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-7" value="avm_aiapp_SuspiciousPersonDetectCycle" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="1816" y="20" width="307" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-8" value="LLM模型" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="2406" y="20" width="150" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-9" value="Android IPS通道" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="2606" y="20" width="150" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-10" value="Linux UI" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" vertex="1" parent="1">
+          <mxGeometry x="2806" y="20" width="150" height="1892" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-11" value="alt" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=30" vertex="1" parent="1">
+          <mxGeometry x="403" y="981" width="2289" height="628" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-12" value="[状态从 false -&gt; true]" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-11">
+          <mxGeometry x="30" width="2259" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-13" value="[状态从 true -&gt; false 且连续 2 次]" style="shape=line;dashed=1;whiteSpace=wrap;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;align=center;strokeColor=#B3B3B3;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-11">
+          <mxGeometry y="319" width="2289" height="4" as="geometry" />
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-14" value="下发控制命令（例如 0x4007）" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-2" target="c5dkT5dbg2BlWebvFBzi-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-15" value="1" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-14">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-150" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-16" value="worker_to_grpcClient 队列里收到命令" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-3" target="c5dkT5dbg2BlWebvFBzi-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="591" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-17" value="2" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-16">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-176" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-18" value="解析 cmd = 0x4007" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-4" target="c5dkT5dbg2BlWebvFBzi-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="802" y="231" />
+              <mxPoint x="802" y="261" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-19" value="3" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-18">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-20" value="设置 SettingManager::getAiCarPhoneHomeSec(...)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-4" target="c5dkT5dbg2BlWebvFBzi-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="802" y="313" />
+              <mxPoint x="802" y="343" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-21" value="4" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-20">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-22" value="set_avm_obstacle_cycle_enable(true)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-4" target="c5dkT5dbg2BlWebvFBzi-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="802" y="395" />
+              <mxPoint x="802" y="425" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-23" value="5" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-22">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-24" value="周期抓拍检测开关打开" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-4" target="c5dkT5dbg2BlWebvFBzi-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="889" y="477" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-25" value="6" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-24">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-137.25" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-26" value="左右摄像头交替拍照" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-5" target="c5dkT5dbg2BlWebvFBzi-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1062" y="529" />
+              <mxPoint x="1062" y="559" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-27" value="7" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-26">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-28" value="aiBoxQueue.push(&quot;{0x00,0x90,0x06, cameraType, 图像数据}&quot;)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-5" target="c5dkT5dbg2BlWebvFBzi-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1267" y="611" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-29" value="8" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-28">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-255" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-30" value="run_aiBox() 取出消息" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-6" target="c5dkT5dbg2BlWebvFBzi-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1557" y="663" />
+              <mxPoint x="1557" y="693" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-31" value="9" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-30">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-32" value="解析 cmd = 0x9006" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-6" target="c5dkT5dbg2BlWebvFBzi-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1557" y="745" />
+              <mxPoint x="1557" y="775" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-33" value="10" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-32">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-34" value="判断 getAiCarPhoneHomeSec() == true" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-6" target="c5dkT5dbg2BlWebvFBzi-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1557" y="827" />
+              <mxPoint x="1557" y="857" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-35" value="11" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-34">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-36" value="调用 avm_aiapp_SuspiciousPersonDetectCycle(imgData)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-6" target="c5dkT5dbg2BlWebvFBzi-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1746" y="909" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-37" value="12" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-36">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-239.5" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-38" value="llm_get_suspicious_person_state(image)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2234" y="961" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-39" value="13" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-38">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-263" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-40" value="SuspiciousPerson = true" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2021" y="1059" />
+              <mxPoint x="2021" y="1089" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-41" value="14" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-40">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-42" value="sendToAndroid_3006(true, img_data, img_size)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2021" y="1141" />
+              <mxPoint x="2021" y="1171" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-43" value="15" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-42">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-44" value="worker_to_grpcClient.push(msg: 0x3006)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1203" y="1223" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-45" value="16" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-44">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="771.25" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-46" value="client.sendMessage(..., ClientType::ANDROID, &quot;android-ips&quot;)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-3" target="c5dkT5dbg2BlWebvFBzi-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1556" y="1275" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-47" value="17" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-46">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-1140.75" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-48" value="SuspiciousPerson = false" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2021" y="1373" />
+              <mxPoint x="2021" y="1403" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-49" value="18" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-48">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-50" value="sendToAndroid_3006(false, nullptr, 0)" style="curved=1;endArrow=block;rounded=0;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2021" y="1455" />
+              <mxPoint x="2021" y="1485" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-51" value="19" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-50">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-57" y="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-52" value="worker_to_grpcClient.push(msg: 0x3006)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1203" y="1537" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-53" value="20" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-52">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="771.25" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-54" value="client.sendMessage(..., ClientType::ANDROID, &quot;android-ips&quot;)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-3" target="c5dkT5dbg2BlWebvFBzi-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1556" y="1589" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-55" value="21" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-54">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-1140.75" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-56" value="llm_get_suspicious_person_description(image, stream callback)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2234" y="1651" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-57" value="22" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-56">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-263" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-58" value="分段返回描述文本" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-8" target="c5dkT5dbg2BlWebvFBzi-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2237" y="1703" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-59" value="23" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-58">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="249" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-60" value="每段文本 push 0x4013 消息" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-7" target="c5dkT5dbg2BlWebvFBzi-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1203" y="1755" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-61" value="24" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-60">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="771.25" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-62" value="client.sendMessage(..., ClientType::LINUX, &quot;linux-ui&quot;)" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" edge="1" parent="1" source="c5dkT5dbg2BlWebvFBzi-3" target="c5dkT5dbg2BlWebvFBzi-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1656" y="1807" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c5dkT5dbg2BlWebvFBzi-63" value="25" style="ellipse;aspect=fixed;fillColor=#000000;align=center;fontColor=#FFFFFF;" vertex="1" parent="c5dkT5dbg2BlWebvFBzi-62">
+          <mxGeometry width="14" height="14" relative="1" as="geometry">
+            <mxPoint x="-1240.75" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="sequenceDiagram&#xa;    autonumber&#xa;    participant User as 用户&#xa;    participant HMI as HMI进程（Qt/QML）&#xa;    participant HMIObj as HMIEventReceiveApp&#xa;    participant IPC as MessageClient / IPC通道&#xa;    participant AI as AI APP进程&#xa;    participant Worker as Worker线程&#xa;    participant Obs as avm_obstacle_periodic_shot_thread&#xa;    participant Aibox as AIBox线程&#xa;    participant LLM as LLM模型&#xa;    participant Android as Android终端&#xa;&#xa;&#xa;    User-&gt;&gt;HMI: 在设置页面打开“车外不審者認識”&#xa;    HMI-&gt;&gt;HMIObj: QML 调用 sendHMIEvent(0x4007, [1])&#xa;    HMIObj-&gt;&gt;HMIObj: 打包协议：0x40 0x07 + data[0]=1&#xa;    HMIObj-&gt;&gt;IPC: m_client-&gt;sendMessage(command)&#xa;    IPC--&gt;&gt;AI: 通过 IPC/消息通道传输 0x4007&#xa;&#xa;&#xa;    AI-&gt;&gt;Worker: grpcClient线程收到消息，送入 worker 队列&#xa;    Worker-&gt;&gt;Worker: 解析 cmd = 0x4007&#xa;    alt data == 1&#xa;        Worker-&gt;&gt;Worker: set_avm_obstacle_cycle_enable(true)&#xa;        Worker-&gt;&gt;Worker: setAiCarPhoneHomeSec(true)&#xa;    else data == 0&#xa;        Worker-&gt;&gt;Worker: set_avm_obstacle_cycle_enable(false)&#xa;        Worker-&gt;&gt;Worker: clear_hmiAppInfo()&#xa;    end&#xa;&#xa;&#xa;    Worker--&gt;&gt;Obs: 打开/关闭车外周期抓拍检测&#xa;    Obs-&gt;&gt;Obs: 左右摄像头交替抓拍&#xa;    Obs-&gt;&gt;Aibox: aiBoxQueue.push(0x9006 + 图像)&#xa;    Aibox-&gt;&gt;Aibox: run_aiBox() 取消息&#xa;    Aibox-&gt;&gt;Aibox: 调用 avm_aiapp_SuspiciousPersonDetectCycle()&#xa;    Aibox-&gt;&gt;LLM: llm_get_suspicious_person_state(image)&#xa;    LLM--&gt;&gt;Aibox: 返回 JSON 判断是否可疑&#xa;    alt 检测到可疑人员&#xa;        Aibox-&gt;&gt;Aibox: sendToAndroid_3006(true, img, size)&#xa;    else 未检测到可疑人员&#xa;        Aibox-&gt;&gt;Aibox: sendToAndroid_3006(false, nullptr, 0)&#xa;    end&#xa;    Aibox-&gt;&gt;Worker: worker_to_grpcClient.push(msg)&#xa;    Worker-&gt;&gt;IPC: 通过 grpcClient线程发出&#xa;    IPC--&gt;&gt;Android: 发送 0x3006 告警消息" link="sequenceDiagram&#xa;    autonumber&#xa;    participant User as 用户&#xa;    participant HMI as HMI进程（Qt/QML）&#xa;    participant HMIObj as HMIEventReceiveApp&#xa;    participant IPC as MessageClient / IPC通道&#xa;    participant AI as AI APP进程&#xa;    participant Worker as Worker线程&#xa;    participant Obs as avm_obstacle_periodic_shot_thread&#xa;    participant Aibox as AIBox线程&#xa;    participant LLM as LLM模型&#xa;    participant Android as Android终端&#xa;&#xa;&#xa;    User-&gt;&gt;HMI: 在设置页面打开“车外不審者認識”&#xa;    HMI-&gt;&gt;HMIObj: QML 调用 sendHMIEvent(0x4007, [1])&#xa;    HMIObj-&gt;&gt;HMIObj: 打包协议：0x40 0x07 + data[0]=1&#xa;    HMIObj-&gt;&gt;IPC: m_client-&gt;sendMessage(command)&#xa;    IPC--&gt;&gt;AI: 通过 IPC/消息通道传输 0x4007&#xa;&#xa;&#xa;    AI-&gt;&gt;Worker: grpcClient线程收到消息，送入 worker 队列&#xa;    Worker-&gt;&gt;Worker: 解析 cmd = 0x4007&#xa;    alt data == 1&#xa;        Worker-&gt;&gt;Worker: set_avm_obstacle_cycle_enable(true)&#xa;        Worker-&gt;&gt;Worker: setAiCarPhoneHomeSec(true)&#xa;    else data == 0&#xa;        Worker-&gt;&gt;Worker: set_avm_obstacle_cycle_enable(false)&#xa;        Worker-&gt;&gt;Worker: clear_hmiAppInfo()&#xa;    end&#xa;&#xa;&#xa;    Worker--&gt;&gt;Obs: 打开/关闭车外周期抓拍检测&#xa;    Obs-&gt;&gt;Obs: 左右摄像头交替抓拍&#xa;    Obs-&gt;&gt;Aibox: aiBoxQueue.push(0x9006 + 图像)&#xa;    Aibox-&gt;&gt;Aibox: run_aiBox() 取消息&#xa;    Aibox-&gt;&gt;Aibox: 调用 avm_aiapp_SuspiciousPersonDetectCycle()&#xa;    Aibox-&gt;&gt;LLM: llm_get_suspicious_person_state(image)&#xa;    LLM--&gt;&gt;Aibox: 返回 JSON 判断是否可疑&#xa;    alt 检测到可疑人员&#xa;        Aibox-&gt;&gt;Aibox: sendToAndroid_3006(true, img, size)&#xa;    else 未检测到可疑人员&#xa;        Aibox-&gt;&gt;Aibox: sendToAndroid_3006(false, nullptr, 0)&#xa;    end&#xa;    Aibox-&gt;&gt;Worker: worker_to_grpcClient.push(msg)&#xa;    Worker-&gt;&gt;IPC: 通过 grpcClient线程发出&#xa;    IPC--&gt;&gt;Android: 发送 0x3006 告警消息" id="c5dkT5dbg2BlWebvFBzi-64">
+          <mxCell style="text;whiteSpace=wrap;" vertex="1" parent="1">
+            <mxGeometry x="920" y="200" width="390" height="700" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
